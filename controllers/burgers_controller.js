@@ -1,14 +1,14 @@
 const express = require('express');
-router = express.Router();
+var router = express.Router();
 var burger = require('../models/burger.js');
 
-router.get('/', function(req, rest) {
+router.get('/', function(req, res) {
     burger.selectAll(function(data) {
         var hbsObject = {
             burger: data
         };
 
-        console.log(hbcObject);
+        // console.log(hbsObject);
         res.render('index', hbsObject);
     });
 });
@@ -32,7 +32,4 @@ router.put('/api/burgers/:id', function(req, res) {
     });
 });
 
-router.delete();
-
-
-module.export = router;
+module.exports = router;
