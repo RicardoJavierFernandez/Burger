@@ -16,7 +16,7 @@ input {
     border-radius: 4px;
 }
 
-button {
+.devour-btn, button {
     width: 100px;
     height: 30px;
     border-radius: 4px;
@@ -25,19 +25,21 @@ button {
     display: inline-block;
 }
 
-button:hover {
-    cursor: pointer;
-    border: 1px solid #000000;
+button {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
 }
 
-span {
-    display: inline;
+button:hover {
+    cursor: pointer;
+    border: 1px solid #FF70A6;
 }
 
 .burgers {
     display: grid;
     grid-template-columns: 50% 50%;
-
+    justify-content: center;
 }
 
 .devoured-true {
@@ -50,4 +52,8 @@ span {
     margin: auto;
     width: 50%;
     text-align: left;
+}
+
+#burger-name {
+    font-size: 16px;
 }
