@@ -67,12 +67,11 @@ var orm = {
             cb(result);
         });
     },
-    updateOne: function(table, objColVals, condition, cb) {
+    updateOne: function(table, condition, cb) {
         var queryString = 'UPDATE ' + table;
-        queryString += ' SET ';
-        queryString += objToSql(objColVals);
-        queryString += ' WHERE '
-        queryString += objToSql(condition);
+        queryString += ' SET devoured = 1';
+        queryString += ' WHERE id = ';
+        queryString += condition;
 
         // console.log(queryString);
         connection.query(queryString, function(err, result) {
@@ -80,6 +79,7 @@ var orm = {
             {
                 throw err;
             }
+
             cb(result);
         });
     }
@@ -89,6 +89,6 @@ var orm = {
 // Test methods
 // orm.selectAll('burgers', (result) => console.log(result));
 // orm.insertOne('burgers', ['burger_name', 'devoured'], ['test burger', 1], (result) => console.log(result));
-// orm.updateOne('burgers', {'devoured': 1}, {'id': 1}, (result) => console.log(result));
+// orm.updateOne('burgers', 1, (result) => console.log(result));
 
 module.exports = orm;

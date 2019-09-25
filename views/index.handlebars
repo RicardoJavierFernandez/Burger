@@ -1,5 +1,19 @@
 <h1>Burgers</h1>
 
+<div class="devoured-false">
+  <ol>
+    {{#each burger}}
+      {{#unless devoured }}
+      <span>
+        <li>{{this.burger_name}}</li>
+        <button id={{this.id}} class="devour-btn">Devour it!</button>
+      </span>
+      {{/unless}}
+    {{/each}}
+  </ol>
+</div>
+
+
 <div class="burgers">
   <div class="devoured-true">
   <ol>
@@ -12,20 +26,7 @@
     {{/each}}
   </ol>
   </div>
-
-  <div class="devoured-false">
-    <ol>
-    {{#each burger}}
-      {{#unless devoured }}
-    <span>
-      <li id={{this.id}}>{{this.burger_name}}</li>
-      <button class="devour-btn">Devour it!</button>
-    </span>
-      {{/unless}}
-    {{/each}}
-    </ol>
-  </div>
-  </div>
+</div>
 
 
   <h2>Add a Burger</h2>

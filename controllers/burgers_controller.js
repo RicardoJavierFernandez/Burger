@@ -20,7 +20,7 @@ router.post('/api/burgers', function(req, res) {
 });
 
 router.put('/api/burgers/:id', function(req, res) {
-    burger.updateOne(req.body.name, req.body.condition, function(req, res) {
+    burger.updateOne(req.params.id, function(result) {
         if (result.changedRows == 0)
         {
             return res.sendStatus(404).end();
