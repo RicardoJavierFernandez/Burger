@@ -1,28 +1,20 @@
-const db = require('mysql');
+const mysql = require('mysql');
 var connection;
 require('dotenv').config();
 
-// const connection = db.createConnection({
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     port: process.env.PORT || 3306,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_NAME
-// });
-
 if (process.env.JAWSDB_URL) 
 {
-    connection = db.createConnection(process.env.JAWSDB_URL);
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 else
 {
-    connection = db.createConnection({
+    connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     port: process.env.PORT || 3306,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME
-    })
+    });
 };
 
 connection.connect(function(err) {
